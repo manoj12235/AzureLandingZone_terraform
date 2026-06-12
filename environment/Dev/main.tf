@@ -9,11 +9,13 @@ module "azurerm_virtual_network" {
   vnet1      = var.vnet1
 }
 
+
 module "azurerm_subnet" {
   depends_on = [module.azurerm_virtual_network]
   source     = "../../Modules/azurerm_subnet"
   subnet1    = var.subnet1
 }
+
 
 module "azurerm_network_interface" {
   depends_on = [module.azurerm_subnet]
